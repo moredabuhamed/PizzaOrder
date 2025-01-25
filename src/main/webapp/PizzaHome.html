@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza App</title>
+    <link rel="stylesheet" href="css/PizzaHome.css">
+    <script>
+        function updateSelectedSize() {
+            const sizeOptions = document.querySelectorAll('input[name="size"]');
+            const selectedSizeDisplay = document.getElementById('selected-size');
+
+            sizeOptions.forEach(option => {
+                option.addEventListener('change', () => {
+                    selectedSizeDisplay.textContent = `Selected size: ${option.value} cm`;
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', updateSelectedSize);
+    </script>
+</head>
+<body>
+<h1>Welcome to the Pizza Ordering App!</h1>
+<p>Select your pizza size:</p>
+<form method="post" action="PizzaOrder.jsp">
+    <label class="size-label">
+        <input type="radio" name="size" value="24"> 24 cm
+    </label><br/>
+    <label class="size-label">
+        <input type="radio" name="size" value="32" checked="checked"> 32 cm
+    </label><br/>
+    <label class="size-label">
+        <input type="radio" name="size" value="45"> 45 cm
+    </label><br/>
+    <input type="submit" value="Next">
+</form>
+<p id="selected-size" class="selected-size">Selected size: 32 cm</p>
+</body>
+</html>
